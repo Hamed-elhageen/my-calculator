@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Calculator</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='calculator.css'>
+    <script src="https://cdn.tailwindcss.com"></script> <!-- to make tailwind work -->
+    <style> 
+    input:not(input[name='display']){
+    border:none; 
+    outline: none;
+    width: 60px;
+    height: 60px;
+    border-radius:10px;
+    margin: 10px;
+    background-color:transparent;
+    color:#fff;
+    font-size:20px;
+    cursor: pointer;
+    box-shadow: -8px -8px 15px rgba(255, 255, 255, 0.1), 5px 5px 15px rgba(0, 0, 0, 0.2);
+}
+    .container .calculator .colorful{
+        color:#33ffd8;
+}
+    .container .calculator .equal{
+    width:145px;
+}
+    </style>
+</head>
+<body>
+    <div class="container bg-[#e3f9e3] w-full h-screen flex justify-center items-center"> 
+        <div class="calculator bg-[#3a4452] p-5 rounded-lg "> 
+            <form> 
+                <div class="display flex justify-end my-5 mx-0">  
+                    <input type="text" name="display" class="shadow-none text-right flex-1 text-5xl border-none outline-none w-16 h-16 rounded-xl m-2.5 bg-transparent text-[#fff] cursor-pointer ">
+                </div>
+                <div> 
+                    <input type="button" value="AC" class="colorful" onclick="display.value=' '">
+                    <input type="button" value="DE"class="colorful" onclick="display.value=display.value.toString().slice(0,-1)">
+                    <input type="button" value= "."    class="colorful" onclick="display.value+='.'">
+                    <input type="button" value= "/"    class="colorful" onclick="display.value+='/'">
+                </div>
+                <div> 
+                    <input type="button" value="7" class=" " onclick="display.value+='7' ">
+                    <input type="button" value="8" class=" " onclick="display.value+='8'">
+                    <input type="button" value="9" class=" " onclick="display.value+='9' ">
+                    <input type="button" value="*" class="colorful" onclick="display.value+='*'">
+                </div>
+                <div> 
+                    <input type="button" value="4" class=" " onclick="display.value+='4' ">
+                    <input type="button" value="5" class=" " onclick="display.value+='5'">
+                    <input type="button" value="6" class=" " onclick="display.value+='6' ">
+                    <input type="button" value="-"  class="colorful" onclick="display.value+='-'">
+                </div>
+                <div> 
+                    <input type="button" value="1" class=" " onclick="display.value+='1'">
+                    <input type="button" value="2" class=" " onclick="display.value+='2'">
+                    <input type="button" value="3" class="" onclick="display.value+='3'">
+                    <input type="button" value="+" class=" colorful" onclick="display.value+='+'">
+                </div>
+                <div> 
+                    <input type="button" value="00" class=" " onclick="display.value+='00'">
+                    <input type="button" value="0" class="" onclick="display.value+='0'">
+                    <input type="button" value="=" class="colorful equal" onclick="display.value=eval(display.value)">
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src='calc.js'></script>
+</body>
+</html>
